@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('district', function (Blueprint $table) {
+        Schema::create('agent_member_group', function (Blueprint $table) {
             $table->string('id');
-            $table->string('country_id')->nullable();
-            $table->string('name')->nullable();
-            $table->string("kh_name")->nullable();
-            $table->string('location_id')->nullable();
-            $table->boolean('status')->nullable();
-            $table->text('description')->nullable();
+            $table->string('user_id');
+            $table->boolean('status');
+            $table->string('group_number');
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('district');
+        Schema::dropIfExists('agent_member_group');
     }
 };

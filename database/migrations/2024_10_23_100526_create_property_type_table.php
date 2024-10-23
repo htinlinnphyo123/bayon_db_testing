@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('district', function (Blueprint $table) {
+        Schema::create('property_type', function (Blueprint $table) {
             $table->string('id');
-            $table->string('country_id')->nullable();
-            $table->string('name')->nullable();
-            $table->string("kh_name")->nullable();
-            $table->string('location_id')->nullable();
+            $table->string('name');
+            $table->string('native_name')->nullable();
+            $table->string('type')->nullable();
+            $table->string('description')->nullable();
             $table->boolean('status')->nullable();
-            $table->text('description')->nullable();
+            $table->string('language')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -33,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('district');
+        Schema::dropIfExists('property_type');
     }
 };

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('agency_type', function (Blueprint $table) {
             $table->string('id');
-            $table->string('name');
-            $table->boolean('status');
-            $table->text('description');
-            $table->string('type_id');
+            $table->string('name')->nullable();
+            $table->boolean('status')->nullable();
+            $table->text('description')->nullable();
+            $table->string('type_id')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

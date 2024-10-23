@@ -14,12 +14,12 @@ return new class extends Migration
         Schema::create('company', function (Blueprint $table) {
             $table->string('id');
             $table->string('name');
-            $table->string('latin_name');
-            $table->string('short_name');
-            $table->string('base_currency');
-            $table->boolean('is_paid');
-            $table->string('url_payment');
-            $table->boolean('is_run_daily');
+            $table->string('latin_name')->nullable();
+            $table->string('short_name')->nullable();
+            $table->string('base_currency')->nullable();
+            $table->boolean('is_paid')->nullable();
+            $table->string('url_payment')->nullable();
+            $table->boolean('is_run_daily')->nullable();
             
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

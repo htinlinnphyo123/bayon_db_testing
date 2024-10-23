@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('district', function (Blueprint $table) {
+        Schema::create('announcement', function (Blueprint $table) {
             $table->string('id');
-            $table->string('country_id')->nullable();
-            $table->string('name')->nullable();
-            $table->string("kh_name")->nullable();
-            $table->string('location_id')->nullable();
-            $table->boolean('status')->nullable();
-            $table->text('description')->nullable();
+            $table->string('title');
+            $table->string('body');
+            $table->date('start_date');
+            $table->date('end_date');
+            $table->string('start_month',5);
+            $table->string('end_month',5);
+            $table->string('country_code');
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('district');
+        Schema::dropIfExists('announcement');
     }
 };
