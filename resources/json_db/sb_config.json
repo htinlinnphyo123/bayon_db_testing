@@ -1,0 +1,1 @@
+{"_id":"Pz2xxEyHaShN2EHkv","paidCommissionIfOver":{"$numberInt":"1000"},"typePaidCommission":"byPercentPaid","monthlyWithdraw":{"$numberInt":"0"},"typeMonthlyWithdraw":"F","withdrawDate":"2020-10-21","createdAt":{"$date":{"$numberLong":"1601948022672"}},"createdUser":"hSp4DYvPhfsLTahoD"}

@@ -1,0 +1,3 @@
+{"_id":"FwsvAGtKYcGFpo6dw","name":"Farm Land","code":"001","createdAt":{"$date":{"$numberLong":"1601947588844"}},"createdUser":"hSp4DYvPhfsLTahoD","updatedAt":{"$date":{"$numberLong":"1602257904660"}},"updatedUser":"hSp4DYvPhfsLTahoD"}
+{"_id":"3o8Bz9Yb9b5HfJaSg","name":"Flat House","code":"002","createdAt":{"$date":{"$numberLong":"1601947596823"}},"createdUser":"hSp4DYvPhfsLTahoD","updatedAt":{"$date":{"$numberLong":"1602257888764"}},"updatedUser":"hSp4DYvPhfsLTahoD"}
+{"_id":"YfWp28DRXcBmqA6d2","name":"Commercial Land","code":"003","createdAt":{"$date":{"$numberLong":"1601947611791"}},"createdUser":"hSp4DYvPhfsLTahoD","updatedAt":{"$date":{"$numberLong":"1602257922793"}},"updatedUser":"hSp4DYvPhfsLTahoD"}

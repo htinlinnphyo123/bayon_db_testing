@@ -1,0 +1,1 @@
+{"_id":"uAkvP6EEoBesEfCuA","exDate":{"$date":{"$numberLong":"1601942400000"}},"rates":{"USD":{"$numberInt":"1"},"KHR":{"$numberInt":"4000"},"THB":{"$numberInt":"33"},"CNY":{"$numberDouble":"6.7"}},"base":"USD","status":true,"exDateName":"06/10/2020","createdAt":{"$date":{"$numberLong":"1601948142870"}},"createdUser":"hSp4DYvPhfsLTahoD"}
