@@ -17,8 +17,8 @@ return new class extends Migration
             $table->string('body');
             $table->date('start_date');
             $table->date('end_date');
-            $table->string('start_month',5);
-            $table->string('end_month',5);
+            $table->string('start_month_day',5);
+            $table->string('end_month_day',5);
             $table->string('country_code');
 
             $table->string('created_by')->nullable();

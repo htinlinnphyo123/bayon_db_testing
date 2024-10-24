@@ -15,6 +15,25 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AssociationSeeder::class,
+            AbaTransactionSeeder::class,
+            AppStoreTransactionSeeder::class,
+            // AutoSeeder::class,
+            AutoBranchSeeder::class,
+            AutoSubBranchSeeder::class,
+            // BranchSeeder::class,
+            CompanySeeder::class,
+            AgencyTypeSeeder::class,
+            // DistrictSeeder::class,
+            LocationSeeder::class,
+            PropertyTypeSeeder::class,
+            AdvertiseSeeder::class,
+            // AgentSeeder::class,
+            // AgentGroupSeeder::class,
+            AgentMemberGroupSeeder::class,
+            AnnouncementSeeder::class,
+            ApplyLoanSeeder::class,
+            // AppointmentSeeder::class,
+
 
         ]);
         // User::factory(10)->create();

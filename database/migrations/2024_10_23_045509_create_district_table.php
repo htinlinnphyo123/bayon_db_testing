@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id');
             $table->string('country_id')->nullable();
             $table->string('name')->nullable();
-            $table->string("kh_name")->nullable();
+            $table->string('kh_name')->nullable();
             $table->string('location_id')->nullable();
             $table->boolean('status')->nullable();
             $table->text('description')->nullable();

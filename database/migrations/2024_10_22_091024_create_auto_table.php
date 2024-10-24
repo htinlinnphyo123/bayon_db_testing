@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->text('url_list')->nullable();
             $table->string('code')->nullable();
-            $table->text('geo_location')->nullable();
+            $table->text('geolocation')->nullable();
             $table->string('currency_symbol')->nullable();
             $table->string('price_short')->nullable();
             $table->integer('view')->nullable();
@@ -45,7 +45,7 @@ return new class extends Migration
             $table->string('tax_type')->nullable();
             $table->string('branch_id')->nullable();
             $table->string('color')->nullable();
-    
+
             $table->dateTime('first_created_at');
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

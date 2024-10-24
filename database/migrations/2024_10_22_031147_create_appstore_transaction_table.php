@@ -15,10 +15,10 @@ return new class extends Migration
             $table->string('id');
             $table->string('tran_id')->nullable();
             $table->string('app_store_tran_id')->nullable();
-            $table->integer('product_id')->nullable();
+            $table->string('product_id')->nullable();
             $table->double('price')->nullable();
             $table->boolean('status')->nullable();
-            
+
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();

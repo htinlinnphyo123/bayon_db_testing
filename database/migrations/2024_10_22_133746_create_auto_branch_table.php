@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('auto_branch', function (Blueprint $table) {
             $table->string('id');
             $table->string('name');
-            $table->string('autoType');
+            $table->string('auto_type');
             $table->string('status');
-            $table->text('desc');
+            $table->text('desc')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
