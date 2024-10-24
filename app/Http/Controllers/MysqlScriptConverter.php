@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 
 class MysqlScriptConverter extends Controller
 {
-    public function index()
+    public string $path;
+    public function __construct($path)
+    {
+        $this->path = $path;
+    }
+    public function generate()
     {
         // Path to your NDJSON file
-        $path = resource_path("json_db/ref_district.json");
+        $path = resource_path($this->path);
 
         $datas = $this->getDecodedArrayAfterFileReading($path);
         $arrays = [];
@@ -19,9 +24,7 @@ class MysqlScriptConverter extends Controller
             // $keys = array_keys($result);
             $arrays[] = $result;
         }   
-        echo '<pre>';
-        print_r($arrays);
-        echo '</pre>';
+        return $arrays;
     }
 
     protected function getDecodedArrayAfterFileReading($inputFile)

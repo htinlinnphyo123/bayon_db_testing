@@ -35,9 +35,8 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->double('currency_salary_or_monthly_income')->nullable();
             $table->string('company_or_business_name')->nullable();
-            $table->string('comp_or_bus_country_id')->nullable();
-            $table->string('comp_or_bus_country_id')->nullable();
             $table->string('comp_or_bus_street_no')->nullable();
+            $table->string('comp_or_bus_country_id')->nullable();
             $table->string('comp_or_bus_home_no')->nullable();
             $table->string('comp_or_bus_location_id')->nullable();
             $table->string('comp_or_bus_district_id')->nullable();

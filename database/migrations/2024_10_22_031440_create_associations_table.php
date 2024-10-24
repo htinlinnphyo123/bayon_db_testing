@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('association', function (Blueprint $table) {
+        Schema::create('associations', function (Blueprint $table) {
             $table->string('id');
-            $table->string('name');
-            $table->text('description');
-            $table->string('short_name');
-            $table->string('country_id');
-            $table->string('logo');
+            $table->string('name')->nullable();
+            $table->text('description')->nullable();
+            $table->string('short_name')->nullable();
+            $table->string('country_id')->nullable();
+            $table->string('logo')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('association');
+        Schema::dropIfExists('associations');
     }
 };

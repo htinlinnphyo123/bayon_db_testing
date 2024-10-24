@@ -13,8 +13,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call([
+            AssociationSeeder::class,
+
+        ]);
         // User::factory(10)->create();
 
-        User::factory(10)->create();
+        // User::factory(10)->create();
     }
 }

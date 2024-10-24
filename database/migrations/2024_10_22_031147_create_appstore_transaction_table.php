@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('appstore_transaction', function (Blueprint $table) {
             $table->string('id');
-            $table->string('tran_id');
-            $table->string('app_store_tran_id');
-            $table->integet('product_id');
-            $table->double('price');
-            $table->boolean('status');
+            $table->string('tran_id')->nullable();
+            $table->string('app_store_tran_id')->nullable();
+            $table->integer('product_id')->nullable();
+            $table->double('price')->nullable();
+            $table->boolean('status')->nullable();
             
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
