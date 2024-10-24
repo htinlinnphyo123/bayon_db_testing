@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('auto', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('group_type')->nullable();
             $table->string('currency_code')->nullable();
             $table->string('phone_number_prefix')->nullable();
@@ -31,7 +31,7 @@ return new class extends Migration
             $table->string('position')->nullable();
             $table->text('url_list')->nullable();
             $table->string('code')->nullable();
-            $table->text('geo_location')->nullable();
+            $table->text('geolocation')->nullable();
             $table->string('currency_symbol')->nullable();
             $table->string('price_short')->nullable();
             $table->integer('view')->nullable();

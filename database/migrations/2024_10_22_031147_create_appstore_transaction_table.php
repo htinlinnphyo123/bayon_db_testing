@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('appstore_transaction', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('tran_id')->nullable();
             $table->string('app_store_tran_id')->nullable();
             $table->integer('product_id')->nullable();

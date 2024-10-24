@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('associations', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('name')->nullable();
             $table->text('description')->nullable();
             $table->string('short_name')->nullable();

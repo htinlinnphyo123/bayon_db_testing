@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aba_transaction', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('tran_id');
             $table->boolean('status')->nullable();
 

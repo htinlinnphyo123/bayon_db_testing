@@ -11,15 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('advertise', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->date('start_date')->nullable();
-            $table->date('expired_date')->nullable();
-            $table->string('country_code')->nullable();
-            $table->string('property_id')->nullable();
-            $table->integer('count')->nullable();
-            $table->string('agent_id')->nullable();
-            $table->string('agency_id')->nullable();
+            $table->unsignedSmallInteger('code')->nullable();
+            $table->string('name');
+            $table->boolean('status')->nullable();
+            $table->text('description')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -34,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('advertise');
+        Schema::dropIfExists('category');
     }
 };

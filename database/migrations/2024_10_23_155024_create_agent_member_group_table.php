@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('agent_member_group', function (Blueprint $table) {
-            $table->string('id');
+            $table->string('id')->primary();
             $table->string('user_id');
             $table->boolean('status');
             $table->string('group_number');

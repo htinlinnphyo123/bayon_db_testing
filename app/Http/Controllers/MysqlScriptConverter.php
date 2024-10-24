@@ -57,6 +57,7 @@ class MysqlScriptConverter extends Controller
     protected function fixBsonTypes($json) 
     {
         // Replace "$oid" with "id"
+        $json = preg_replace('/"id"\s*:/', '"other_id":', $json);
         $json = preg_replace('/"_id"\s*:\s*"(.*?)"/', '"id": "$1"', $json);
     
         $json = preg_replace('/"createdUser"\s*:/', '"created_by":', $json);
@@ -111,6 +112,11 @@ class MysqlScriptConverter extends Controller
                 $convertedArray[$newKey] = $this->cleanMongoDBTypes($value);
             } else {
                 // Add non-array values directly
+                if($value===true){
+                    $value = 1;
+                }else if($value===false){
+                    $value = 0;
+                }
                 $convertedArray[$newKey] = $value;
             }
         }
