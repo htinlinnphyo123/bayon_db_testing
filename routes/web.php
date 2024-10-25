@@ -6,7 +6,9 @@ use App\Livewire\UserList;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    $areas = (new MysqlScriptConverter('json_db/sb_measuringArea.json'))->getFirst();
+        dd($areas);
 });
 
 Route::get('/counter', Counter::class)->name('counter');

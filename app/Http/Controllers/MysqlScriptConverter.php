@@ -27,6 +27,21 @@ class MysqlScriptConverter extends Controller
         return $arrays;
     }
 
+    public function getFirst()
+    {
+        $path = resource_path($this->path);
+
+        $datas = $this->getDecodedArrayAfterFileReading($path);
+        $arrays = [];
+        foreach($datas as $data){
+            // dd($data);
+            $result = $this->convertKeyAndValue($data);
+            // $keys = array_keys($result);
+            return $result;
+        }   
+        // return $arrays;
+    }
+
     protected function getDecodedArrayAfterFileReading($inputFile)
     {
         $array = [];
@@ -106,8 +121,12 @@ class MysqlScriptConverter extends Controller
                 // Specifically handle the 'position' field
                 $convertedArray[$key] = $this->cleanPosition($value);
             } elseif($key==='geolocation') {
-                $convertedArray[$key] = $this->cleanGeolocation($value);
-            } elseif (is_array($value)) {
+                $convertedArray[$newKey] = $this->cleanGeolocation($value);
+            } elseif($key==='latLng') {
+                $convertedArray[$newKey] = $this->cleanLatLanininMeasuringArea($value);              
+            } elseif($key==='initialCameraPosition') {
+                $convertedArray[$newKey] = $this->cleanInitialCameraPosition($value);
+            }elseif (is_array($value)) {
                 // Recursively clean any nested arrays
                 $convertedArray[$newKey] = $this->cleanMongoDBTypes($value);
             } else {
@@ -152,11 +171,37 @@ class MysqlScriptConverter extends Controller
     {
         if (isset($data['coordinates'][0]['$numberDouble']) && isset($data['coordinates'][1]['$numberDouble'])) {
             return [
-                'lat' => (float) $data['coordinates'][0]['$numberDouble'],  // Longitude
-                'lon' => (float) $data['coordinates'][1]['$numberDouble']   // Latitude
+                'lng' => (float) $data['coordinates'][0]['$numberDouble'], 
+                'lat' => (float) $data['coordinates'][1]['$numberDouble'] 
             ];
         }
         return $data;  // Return as-is if structure is different
+    }
+
+    protected function cleanLatLanininMeasuringArea($data)
+    {
+        $array = [];
+        foreach($data as $d){
+            if (isset($d['lat']['$numberDouble']) && isset($d['lng']['$numberDouble'])) {
+                $array[] = [
+                    'lat' => (float) $d['lat']['$numberDouble'],  // Longitude
+                    'lng' => (float) $d['lng']['$numberDouble']   // Latitude
+                ];
+            }
+        }
+        
+        return $array;  // Return as-is if structure is different
+    }
+
+    protected function cleanInitialCameraPosition($data)
+    {
+        if (isset($data[0]['lat']['$numberDouble']) && isset($data[0]['lng']['$numberDouble'])) {
+            return [
+                'lat' => (string) $data[0]['lat']['$numberDouble'],
+                'lng' => (string) $data[0]['lng']['$numberDouble']
+            ];
+        }
+        return $data;  
     }
 
 }

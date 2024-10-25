@@ -14,9 +14,9 @@ class AssociationSeeder extends Seeder
      */
     public function run():void
     {
-        $associations = (new MysqlScriptConverter('json_db/au_auto.json'))->generate();
+        $associations = (new MysqlScriptConverter('json_db/association.json'))->generate();
         foreach($associations as $association){
-            DB::table('auto')->insert($association);
+            DB::table('associations')->insert($association);
         }
 
     }

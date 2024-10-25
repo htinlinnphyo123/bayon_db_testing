@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
-            AssociationSeeder::class,
-
+            // AssociationSeeder::class,
+            MeasuringAreaSeeder::class
         ]);
         // User::factory(10)->create();
 
