@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('up_line_list_id')->nullable();
             $table->string('phone')->nullable();
             $table->integer('total_property')->nullable();
+            $table->string('photo')->nullable();
             $table->boolean('is_renew')->nullable();
             $table->text('description')->nullable();
             $table->string('facebook')->nullable();
@@ -50,7 +51,6 @@ return new class extends Migration
             $table->integer('view')->nullable();
             $table->integer('heart')->nullable();
             $table->string('hearted_users')->nullable();
-            $table->string('photo')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
