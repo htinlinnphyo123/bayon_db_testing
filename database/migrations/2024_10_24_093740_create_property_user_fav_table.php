@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('agency_type', function (Blueprint $table) {
+        Schema::create('property_user_fav', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('name')->nullable();
-            $table->boolean('status')->nullable();
-            $table->text('description')->nullable();
-            $table->string('type_id')->nullable();
+            $table->string('user_id');
+            $table->string('property_id');
 
-            $table->string('created_by')->nullable();
-            $table->string('updated_by')->nullable();
-            $table->string('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('agency_type');
+        Schema::dropIfExists('property_user_fav');
     }
 };

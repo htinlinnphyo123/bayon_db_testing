@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('advertise', function (Blueprint $table) {
+        Schema::create('home', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->date('start_date')->nullable();
-            $table->date('expired_date')->nullable();
-            $table->string('country_code')->nullable();
-            $table->string('property_id')->nullable();
-            $table->integer('count')->nullable();
-            $table->string('agent_id')->nullable();
-            $table->string('agency_id')->nullable();
+            $table->string('category')->nullable();
+            $table->string('body')->nullable();
+            $table->string('size_photo')->nullable();
+            $table->string('country_code',20)->nullable();
+            $table->string('url')->nullable();
+            $table->string('external_link')->nullable();
+            $table->string('button_name')->nullable();
+            $table->string('video_link')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -34,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('advertise');
+        Schema::dropIfExists('home');
     }
 };

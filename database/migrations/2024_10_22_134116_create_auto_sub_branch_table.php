@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('auto_sub_branch', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->string('id');
+=======
+            $table->string('id')->primary();
+>>>>>>> 7cea8549b52a9651a9e4b205ad8f879ffd617199
             $table->string('name');
             $table->string('auto_branch_id');
             $table->string('auto_type');
