@@ -24,7 +24,7 @@ return new class extends Migration
             $table->dateTime('date')->nullable();
             $table->string('bank_id')->nullable();
             $table->string('purpose_id')->nullable();
-            $table->string('location_id');
+            $table->string('location_id')->nullable();
             $table->string('district_id')->nullable();
             $table->string('nrc_no')->nullable();
             $table->string('currency_code',20)->nullable();
@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('home_no')->nullable();
             $table->string('street_no')->nullable();
             $table->string('occupation')->nullable();
-            $table->double('currency_salary_or_monthly_income')->nullable();
+            $table->double('current_salary_or_monthly_income')->nullable();
             $table->string('company_or_business_name')->nullable();
             $table->string('comp_or_bus_street_no')->nullable();
             $table->string('comp_or_bus_country_id')->nullable();
@@ -45,6 +45,9 @@ return new class extends Migration
             $table->string('selfie_photo')->nullable();
             $table->string('business_type')->nullable();
 
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
             $table->timestamps();
         });
     }

@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('auto_sub_branch', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('name');
-            $table->string('auto_branch');
+            $table->string('auto_branch_id');
             $table->string('auto_type');
             $table->string('status');
-            $table->text('desc');
+            $table->text('desc')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

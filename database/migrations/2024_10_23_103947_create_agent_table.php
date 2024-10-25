@@ -50,6 +50,7 @@ return new class extends Migration
             $table->integer('view')->nullable();
             $table->integer('heart')->nullable();
             $table->string('hearted_users')->nullable();
+            $table->string('photo')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
