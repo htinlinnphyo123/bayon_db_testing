@@ -7,17 +7,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MysqlScriptConverter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class AssociationSeeder extends Seeder
+class ClientSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run():void
+    public function run(): void
     {
-        $associations = (new MysqlScriptConverter('json_db/association.json'))->generate();
-        foreach($associations as $association){
-            DB::table('associations')->insert($association);
+        $clients = (new MysqlScriptConverter('json_db/sb_client.json'))->generate();
+        foreach($clients as $client){
+            DB::table('client')->insert($client);
         }
-
     }
 }

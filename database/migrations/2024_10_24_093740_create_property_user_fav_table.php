@@ -14,8 +14,13 @@ return new class extends Migration
         Schema::create('property_user_fav', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->string('user_id');
-            $table->string('property_id');
+            $table->string('property_id')->nullable();
+            $table->string('auto_id')->nullable();
+            $table->string('type')->nullable();
 
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

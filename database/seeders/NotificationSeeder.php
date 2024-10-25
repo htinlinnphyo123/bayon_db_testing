@@ -7,17 +7,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MysqlScriptConverter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class AssociationSeeder extends Seeder
+class NotificationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run():void
+    public function run(): void
     {
-        $associations = (new MysqlScriptConverter('json_db/association.json'))->generate();
-        foreach($associations as $association){
-            DB::table('associations')->insert($association);
+        $notifications = (new MysqlScriptConverter('json_db/sb_notification.json'))->generate();
+        foreach($notifications as $notification){
+            DB::table('notification')->insert($notification);
         }
-
     }
 }

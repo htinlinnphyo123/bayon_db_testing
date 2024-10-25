@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('auto_sub_branch', function (Blueprint $table) {
-
-            $table->string('id');
-
-            $table->string('name');
-            $table->string('auto_branch_id');
-            $table->string('auto_type');
-            $table->string('status');
-            $table->text('desc')->nullable();
+        Schema::create('measuring_area', function (Blueprint $table) {
+            $table->string('id')->primary();
+            $table->string('name')->nullable();
+            $table->double('area')->nullable();
+            $table->string('lat_lng')->nullable();
+            $table->string('initial_camera_position')->nullable();
+            $table->decimal('zoom_level',15,13)->nullable();
+            $table->string('static_map_url')->nullable();
+            $table->string('user_id')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -34,6 +34,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('auto_sub_branch');
+        Schema::dropIfExists('measuring_area');
     }
 };

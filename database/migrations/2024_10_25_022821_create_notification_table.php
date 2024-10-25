@@ -11,21 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('auto_sub_branch', function (Blueprint $table) {
-
+        Schema::create('notification', function (Blueprint $table) {
             $table->string('id');
-
-            $table->string('name');
-            $table->string('auto_branch_id');
-            $table->string('auto_type');
-            $table->string('status');
-            $table->text('desc')->nullable();
+            $table->string('title')->nullable();
+            $table->text('body')->nullable();
+            $table->string('country_code',20)->nullable();
+            $table->string('video_link')->nullable();
+            $table->string('url')->nullable();
+            $table->string('type')->nullable();
+            $table->string('external_link')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('auto_sub_branch');
+        Schema::dropIfExists('notification');
     }
 };

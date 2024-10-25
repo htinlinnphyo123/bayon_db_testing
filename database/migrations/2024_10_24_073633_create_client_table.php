@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->integer('opening_balance')->nullable();
-            $table->string('note')->nullable();
+            $table->longText('note')->nullable();
             $table->date('dob')->nullable();
             $table->string('type')->nullable();
             $table->string('client_type')->nullable();
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('phone_number_prefix')->nullable();
             $table->string('location_id')->nullable();
             $table->string('district_id')->nullable();
-            
+
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();

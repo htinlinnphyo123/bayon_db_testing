@@ -33,7 +33,13 @@ class DatabaseSeeder extends Seeder
             AnnouncementSeeder::class,
             ApplyLoanSeeder::class,
             // AppointmentSeeder::class,
-
+            BusinessTypeSeeder::class,
+            CategorySeeder::class,
+            ClientSeeder::class,
+            PropertyUserFavSeeder::class,
+            HomeSeeder::class,
+            // MeasuringAreaSeeder::class,
+            NotificationSeeder::class,
 
         ]);
         // User::factory(10)->create();
