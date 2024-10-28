@@ -29,10 +29,10 @@ return new class extends Migration
             $table->string('up_line_list_id')->nullable();
             $table->string('phone')->nullable();
             $table->integer('total_property')->nullable();
-            $table->string('photo')->nullable();
+            $table->text('photo')->nullable();
             $table->boolean('is_renew')->nullable();
             $table->text('description')->nullable();
-            $table->string('facebook')->nullable();
+            $table->text('facebook')->nullable();
             $table->string('telegram')->nullable();
             $table->string('user_id')->nullable();
             $table->string('branch_id')->nullable();

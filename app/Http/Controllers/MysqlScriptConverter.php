@@ -18,13 +18,42 @@ class MysqlScriptConverter extends Controller
 
         $datas = $this->getDecodedArrayAfterFileReading($path);
         $arrays = [];
-        foreach($datas as $data){
-            // dd($data);
-            $result = $this->convertKeyAndValue($data);
-            // $keys = array_keys($result);
+        for($i=0;$i<=count($datas)-1;$i++){
+            $result = $this->convertKeyAndValue($datas[$i]);
             $arrays[] = $result;
-        }   
+        } 
         return $arrays;
+    }
+
+    public function limit($number=100)
+    {
+        // Path to your NDJSON file
+        $path = resource_path($this->path);
+
+        $datas = $this->getDecodedArrayAfterFileReading($path);
+        $datas = array_reverse($datas);
+        $arrays = [];
+        for($i=0;$i<=$number;$i++){
+            $result = $this->convertKeyAndValue($datas[$i]);
+            $arrays[] = $result;
+        } 
+        return $arrays;
+    }
+
+    public function findById(string $id)
+    {
+        $path = resource_path($this->path);
+        $datas = $this->getDecodedArrayAfterFileReading($path);
+        foreach($datas as $key=>$data){
+            if(isset($data['_id']) && $data['_id']===$id){
+                // return $data;
+                return $key;
+            }
+            $result = $this->convertKeyAndValue($data);
+            if($result['id']==$id){
+                return $result;
+            };
+        } 
     }
 
     public function getFirst()
@@ -32,14 +61,10 @@ class MysqlScriptConverter extends Controller
         $path = resource_path($this->path);
 
         $datas = $this->getDecodedArrayAfterFileReading($path);
-        $arrays = [];
         foreach($datas as $data){
-            // dd($data);
             $result = $this->convertKeyAndValue($data);
-            // $keys = array_keys($result);
             return $result;
         }   
-        // return $arrays;
     }
 
     protected function getDecodedArrayAfterFileReading($inputFile)
@@ -126,6 +151,8 @@ class MysqlScriptConverter extends Controller
                 $convertedArray[$newKey] = $this->cleanLatLanininMeasuringArea($value);              
             } elseif($key==='initialCameraPosition') {
                 $convertedArray[$newKey] = $this->cleanInitialCameraPosition($value);
+            } elseif($key==='_id' && is_array($value)) {
+                $convertedArray[$newKey] = $value['$oid'];
             }elseif (is_array($value)) {
                 // Recursively clean any nested arrays
                 $convertedArray[$newKey] = $this->cleanMongoDBTypes($value);
@@ -146,36 +173,43 @@ class MysqlScriptConverter extends Controller
     protected function cleanMongoDBTypes($data)
     {
         $test = [];
+        if(array_key_exists('$old',$data)){
+            return $data['$old'];
+        }
         foreach ($data as $key => &$value) {
-            if ($key==='$numberDouble' || $key==='$numberInt') {
-                $test = $value;
+            if ($key==='$numberInt') {
+                $test = (int) $value;
+            } elseif ($key==='$numberDouble') {
+                $test = (float) $value;
             } else {
                 $test[] = $value;
             }
         }
-        return $test;
+        return json_encode($test);
     }
 
     protected function cleanPosition($data)
     {
+        $array = [];
         if (isset($data['lat']['$numberDouble']) && isset($data['lng']['$numberDouble'])) {
-            return [
+            $array = [
                 'lat' => (string) $data['lat']['$numberDouble'],
                 'lng' => (string) $data['lng']['$numberDouble']
             ];
         }
-        return $data;  // Return as-is if structure is different
+        return json_encode($array);  // Return as-is if structure is different
     }
 
     protected function cleanGeolocation($data)
     {
+        $array = [];
         if (isset($data['coordinates'][0]['$numberDouble']) && isset($data['coordinates'][1]['$numberDouble'])) {
-            return [
+            $array = [
                 'lng' => (float) $data['coordinates'][0]['$numberDouble'], 
                 'lat' => (float) $data['coordinates'][1]['$numberDouble'] 
             ];
         }
-        return $data;  // Return as-is if structure is different
+        return json_encode($array);  // Return as-is if structure is different
     }
 
     protected function cleanLatLanininMeasuringArea($data)
@@ -190,18 +224,19 @@ class MysqlScriptConverter extends Controller
             }
         }
         
-        return $array;  // Return as-is if structure is different
+        return json_encode($array);  // Return as-is if structure is different
     }
 
     protected function cleanInitialCameraPosition($data)
     {
+        $array = [];
         if (isset($data[0]['lat']['$numberDouble']) && isset($data[0]['lng']['$numberDouble'])) {
-            return [
+            $array = [
                 'lat' => (string) $data[0]['lat']['$numberDouble'],
                 'lng' => (string) $data[0]['lng']['$numberDouble']
             ];
         }
-        return $data;  
+        return json_encode($array);  
     }
 
 }

@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
             AssociationSeeder::class,
             AbaTransactionSeeder::class,
             AppStoreTransactionSeeder::class,
-            // AutoSeeder::class,
+            AutoSeeder::class,
             AutoBranchSeeder::class,
             AutoSubBranchSeeder::class,
-            // BranchSeeder::class,
+            BranchSeeder::class,
             CompanySeeder::class,
             AgencyTypeSeeder::class,
             // DistrictSeeder::class,
@@ -28,11 +28,11 @@ class DatabaseSeeder extends Seeder
             PropertyTypeSeeder::class,
             AdvertiseSeeder::class,
             // AgentSeeder::class,
-            // AgentGroupSeeder::class,
+            AgentGroupSeeder::class,
             AgentMemberGroupSeeder::class,
             AnnouncementSeeder::class,
             ApplyLoanSeeder::class,
-            // AppointmentSeeder::class,
+            AppointmentSeeder::class,
 
 
         ]);

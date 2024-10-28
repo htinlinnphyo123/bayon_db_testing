@@ -16,6 +16,9 @@ class AgentSeeder extends Seeder
     {
         $agents = (new MysqlScriptConverter('json_db/sb_agent.json'))->generate();
         foreach($agents as $agent){
+            if(isset($agent['is_renew']) && $agent['is_renew']=='Renew'){
+                $agent['is_renew'] = 1;
+            }
             DB::table('agent')->insert($agent);
         }
     }

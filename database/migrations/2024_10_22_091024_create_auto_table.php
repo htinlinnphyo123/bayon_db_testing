@@ -23,9 +23,9 @@ return new class extends Migration
             $table->string("auto_sub_branch")->nullable();
             $table->string('auto_condition')->nullable();
             $table->string("transmission_type")->nullable();
-            $table->year('year')->nullable();
+            $table->unsignedSmallInteger('year')->nullable();
             $table->integer('price')->nullable();
-            $table->string('title')->nullable();
+            $table->text('title')->nullable();
             $table->text('desc')->nullable();
             $table->text('address')->nullable();
             $table->string('position')->nullable();
