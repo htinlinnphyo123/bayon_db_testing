@@ -7,16 +7,16 @@ use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\MysqlScriptConverter;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class MeasuringAreaSeeder extends Seeder
+class NotificationSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $measuring_areas = (new MysqlScriptConverter('json_db/sb_measuringArea.json'))->generate();
-        foreach($measuring_areas as $measuring_area){
-            DB::table('measuring_area')->insert($measuring_area);
+        $notifications = (new MysqlScriptConverter('json_db/sb_notification.json'))->generate();
+        foreach($notifications as $notification){
+            DB::table('notification')->insert($notification);
         }
     }
 }

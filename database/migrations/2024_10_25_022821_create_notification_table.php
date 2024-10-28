@@ -13,9 +13,17 @@ return new class extends Migration
     {
         Schema::create('notification', function (Blueprint $table) {
             $table->string('id');
-            $table->string('title');
-            $table->text('body');
-            $table->string('country_code',20);
+            $table->string('title')->nullable();
+            $table->text('body')->nullable();
+            $table->string('country_code',20)->nullable();
+            $table->string('video_link')->nullable();
+            $table->string('url')->nullable();
+            $table->string('type')->nullable();
+            $table->string('external_link')->nullable();
+
+            $table->string('created_by')->nullable();
+            $table->string('updated_by')->nullable();
+            $table->string('deleted_by')->nullable();
             $table->timestamps();
         });
     }
