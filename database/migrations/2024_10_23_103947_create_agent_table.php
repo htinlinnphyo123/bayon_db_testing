@@ -46,7 +46,7 @@ return new class extends Migration
             $table->string('certificate_type')->nullable();
             $table->boolean('is_request_to_verify')->nullable();
             $table->dateTime('requested_at')->nullable();
-            $table->string('veritifcation_status')->nullable();
+            $table->string('verification_status')->nullable();
             $table->dateTime('approved_at')->nullable();
             $table->integer('view')->nullable();
             $table->integer('heart')->nullable();
