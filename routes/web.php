@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     // return view('welcome');
-    $areas = (new MysqlScriptConverter('json_db/sb_agent.json'))->generate();
+    $areas = (new MysqlScriptConverter('json_db/sb_project.json'))->generate();
         dd($areas);
 });
 

@@ -28,11 +28,14 @@ class DatabaseSeeder extends Seeder
             PropertyTypeSeeder::class,
             AdvertiseSeeder::class,
             // AgentSeeder::class,
-            AgentGroupSeeder::class,
+            // AgentGroupSeeder::class,
             AgentMemberGroupSeeder::class,
             AnnouncementSeeder::class,
             ApplyLoanSeeder::class,
             AppointmentSeeder::class,
+            // PropertySeeder::class,
+            CommentSeeder::class,
+            ProjectSeeder::class,
 
 
         ]);
