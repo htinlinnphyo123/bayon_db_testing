@@ -14,9 +14,9 @@ class PropertyTypeSeeder extends Seeder
      */
     public function run(): void
     {
-        $properties = (new MysqlScriptConverter('json_db/ref_propertyType.json'))->generate();
-        foreach($properties as $property){
-            DB::table('property_type')->insert($property);
+        $property_types = (new MysqlScriptConverter('json_db/ref_propertyType.json'))->generate();
+        foreach($property_types as $property_type){
+            DB::table('property_type')->insert($property_type);
         }
     }
 }
