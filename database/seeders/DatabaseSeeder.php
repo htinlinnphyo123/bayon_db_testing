@@ -36,6 +36,16 @@ class DatabaseSeeder extends Seeder
             // PropertySeeder::class,
             CommentSeeder::class,
             ProjectSeeder::class,
+            AudioSeeder::class,
+            FollowSeeder::class,
+            LikeSeeder::class,
+            PostSeeder::class,
+            ReportSeeder::class,
+            VideoSeeder::class,
+            WantedSeeder::class,
+            TwoCTwoPTransactionSeeder::class,
+            // UserActionSeeder::class,
+            // UserSeeder::class,
 
 
         ]);
