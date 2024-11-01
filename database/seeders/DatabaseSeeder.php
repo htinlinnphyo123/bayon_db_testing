@@ -37,8 +37,27 @@ class DatabaseSeeder extends Seeder
             MeasuringAreaSeeder::class,
             NotificationSeeder::class,
             PropertyTypeSeeder::class,
-            PropertyUserFavSeeder::class
-            // JobSeeder::class
+            AdvertiseSeeder::class,
+            // AgentSeeder::class,
+            // AgentGroupSeeder::class,
+            AgentMemberGroupSeeder::class,
+            AnnouncementSeeder::class,
+            ApplyLoanSeeder::class,
+            AppointmentSeeder::class,
+            // PropertySeeder::class,
+            CommentSeeder::class,
+            ProjectSeeder::class,
+            AudioSeeder::class,
+            FollowSeeder::class,
+            LikeSeeder::class,
+            PostSeeder::class,
+            ReportSeeder::class,
+            VideoSeeder::class,
+            WantedSeeder::class,
+            TwoCTwoPTransactionSeeder::class,
+            // UserActionSeeder::class,
+            // UserSeeder::class,
+
 
         ]);
         // User::factory(10)->create();
