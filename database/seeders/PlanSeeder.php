@@ -36,7 +36,6 @@ class PlanSeeder extends Seeder
                 $newKey = $this->camelToSnakeCase($key);
                 // Check if it's an object with "$numberInt" or "$numberDouble" key
                 if(isset($value['$numberInt'])){
-                    \Log::info($value);
                     $item[$newKey] = (int)$value['$numberInt'];
                 } elseif(isset($value['$numberDouble'])){
                     $item[$newKey] = (float)$value['$numberDouble'];
