@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('group_number')->nullable();
             $table->string('name');
             $table->string('country_id');
-            $table->string('location_id');
-            $table->string('commission');
-            $table->boolean('is_share_group');
+            $table->string('location_id')->nullable();
+            $table->text('commission')->nullable();
+            $table->boolean('is_share_group')->nullable();
             $table->boolean('status');
             
             $table->string('created_by')->nullable();

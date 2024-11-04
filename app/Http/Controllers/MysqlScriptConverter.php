@@ -119,7 +119,7 @@ class MysqlScriptConverter extends Controller
         return $json;
     }
 
-    function camelToSnakeCase($camelCase) { 
+    public function camelToSnakeCase($camelCase) { 
         $result = ''; 
         for ($i = 0; $i < strlen($camelCase); $i++) { 
             $char = $camelCase[$i]; 
@@ -134,7 +134,7 @@ class MysqlScriptConverter extends Controller
         return ltrim($result, '_'); 
     }
 
-    protected function convertKeyAndValue(array $array)
+    public function convertKeyAndValue(array $array)
     {
         $convertedArray = [];
 
