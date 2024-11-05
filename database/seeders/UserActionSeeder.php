@@ -14,9 +14,17 @@ class UserActionSeeder extends Seeder
      */
     public function run(): void
     {
-        $user_actions = (new MysqlScriptConverter('json_db/userActions.json'))->generate();
+        ini_set('memory_limit', '512M');
+        $user_actions = (new MysqlScriptConverter('json_db/userActions.json'))->limit(100);
         foreach($user_actions as $user_action){
+            if(isset($user_action['is_property']) && $user_action['is_property']!==null){
+                $user_action['is_property'] = 1;
+            }else{
+                $user_action['is_property'] = 0;
+            }
             DB::table('user_actions')->insert($user_action);
         }
+        $this->command->info('Inserted to user_actions Successfully');
+
     }
 }

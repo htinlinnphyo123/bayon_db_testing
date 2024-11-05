@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -31,27 +31,26 @@ class DatabaseSeeder extends Seeder
             BranchSeeder::class,
             BusinessTypeSeeder::class,
             CategorySeeder::class,
+            ClientSeeder::class,
+            CommentSeeder::class,
+            CompanySeeder::class,
             DistrictSeeder::class,
+            FollowSeeder::class,
             HomeSeeder::class,
+            LikeSeeder::class,
             LocationSeeder::class,
             MeasuringAreaSeeder::class,
             NotificationSeeder::class,
-            PropertyTypeSeeder::class,
-            AdvertiseSeeder::class,
-            // AgentSeeder::class,
-            // AgentGroupSeeder::class,
-            AgentMemberGroupSeeder::class,
-            AnnouncementSeeder::class,
-            ApplyLoanSeeder::class,
-            AppointmentSeeder::class,
-            // PropertySeeder::class,
-            CommentSeeder::class,
-            ProjectSeeder::class,
-            AudioSeeder::class,
-            FollowSeeder::class,
-            LikeSeeder::class,
+            PlanSeeder::class,
             PostSeeder::class,
+            ProjectSeeder::class,
+            PropertyTypeSeeder::class,
+            PropertySeeder::class,
+            PropertyUserFavSeeder::class,
             ReportSeeder::class,
+            TwoCTwoPTransactionSeeder::class,
+            UserActionSeeder::class,
+            UserSeeder::class,
             VideoSeeder::class,
             WantedSeeder::class,
             TwoCTwoPTransactionSeeder::class,

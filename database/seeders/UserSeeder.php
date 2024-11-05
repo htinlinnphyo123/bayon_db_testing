@@ -14,8 +14,16 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
+        ini_set('memory_limit','512M');
         $users = (new MysqlScriptConverter('json_db/users.json'))->generate();
         foreach($users as $user){
+            if(isset($user['services']['facebook']) && $user['services']['facebook']){
+                $user['facebook_access_token'] = $user['services']['facebook']['accessToken'];
+                $user['facebook_email'] = $user['services']['facebook']['email'];
+            }
+            if(isset($user['services']['password']) && $user['services']['password']){
+                $user['password'] = $user['services']['password']['bcrypt'];
+            }
             DB::table('users')->insert($user);
         }
     }

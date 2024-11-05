@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('country_id');
             $table->string('location_id')->nullable();
-            $table->text('commission')->nullable();
             $table->boolean('is_share_group')->nullable();
             $table->boolean('status');
             
@@ -27,6 +26,18 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
+
+        Schema::create('agent_group_commission',function(Blueprint $table){
+            $table->id();
+            $table->string('property_type')->nullable();
+            $table->float('total_commission_fee')->default(0);
+            $table->float('succeed_commission_fee')->default(0);
+            $table->float('share_commission_fee')->default(0);
+            $table->string('agent_group_id');
+            
+            $table->foreign('agent_group_id')->references('id')->on('agent_group');
+        });
+
     }
 
     /**

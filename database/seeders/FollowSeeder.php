@@ -14,9 +14,10 @@ class FollowSeeder extends Seeder
      */
     public function run(): void
     {
-        $follows = (new MysqlScriptConverter('json_db/sc_follows.json'))->generate();
+        $follows = (new MysqlScriptConverter('json_db/sc_follows.json'))->limit(1000);
         foreach($follows as $follow){
             DB::table('follows')->insert($follow);
         }
+        $this->command->info('Inserted to Follows Successfully . Limited to only generate 1000 cuz memory size limit.');
     }
 }

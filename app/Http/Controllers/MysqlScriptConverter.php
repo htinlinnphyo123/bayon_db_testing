@@ -15,7 +15,6 @@ class MysqlScriptConverter extends Controller
     {
         // Path to your NDJSON file
         $path = resource_path($this->path);
-
         $datas = $this->getDecodedArrayAfterFileReading($path);
         $arrays = [];
         for($i=0;$i<=count($datas)-1;$i++){
@@ -78,12 +77,10 @@ class MysqlScriptConverter extends Controller
             while (($line = fgets($fileHandle)) !== false) {
                 // Preprocess the line to fix BSON types
                 $fixedLine = $this->fixBsonTypes($line);
-                
                 // Decode the JSON line
                 $decodedData = json_decode($fixedLine, true);
                 $array[] = $decodedData;
             }
-
             // Close the file when done
             fclose($fileHandle);
 
@@ -153,6 +150,8 @@ class MysqlScriptConverter extends Controller
                 $convertedArray[$newKey] = $this->cleanInitialCameraPosition($value);
             } elseif($key==='_id' && is_array($value)) {
                 $convertedArray[$newKey] = $value['$oid'];
+            } elseif($key==='profile' || $key==='services') {
+                $convertedArray[$newKey] = $value;
             }elseif (is_array($value)) {
                 // Recursively clean any nested arrays
                 $convertedArray[$newKey] = $this->cleanMongoDBTypes($value);

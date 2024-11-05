@@ -16,7 +16,9 @@ class AbaTransactionSeeder extends Seeder
     {
         $aba_transactions = (new MysqlScriptConverter('json_db/aba_transaction.json'))->generate();
         foreach($aba_transactions as $aba_transaction){
-            DB::table('aba_transaction')->insert($aba_transaction);
+            DB::table('aba_transactions')->insert($aba_transaction);
         }
+        $this->command->info('Inserted to aba_transactions Successfully');
+
     }
 }
