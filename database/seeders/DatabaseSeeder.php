@@ -44,8 +44,8 @@ class DatabaseSeeder extends Seeder
             PlanSeeder::class,
             PostSeeder::class,
             ProjectSeeder::class,
-            PropertySeeder::class,
             PropertyTypeSeeder::class,
+            PropertySeeder::class,
             PropertyUserFavSeeder::class,
             ReportSeeder::class,
             TwoCTwoPTransactionSeeder::class,
@@ -53,6 +53,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             VideoSeeder::class,
             WantedSeeder::class,
+            UserDocumentsSeeder::class,
         ]);
     }
 }

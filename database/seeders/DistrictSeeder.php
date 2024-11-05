@@ -14,9 +14,11 @@ class DistrictSeeder extends Seeder
      */
     public function run(): void
     {
-        $districties = (new MysqlScriptConverter('json_db/ref_district.json'))->generate();
+        $districties = (new MysqlScriptConverter('json_db/ref_district.json'))->limit(1000);
         foreach($districties as $district){
-            DB::table('district')->insert($district);
+            DB::table('districts')->insert($district);
         }
+        $this->command->info('Inserted to Districts Table Successfully . Limited to only generate 1000 cuz memory size limit.');
+
     }
 }

@@ -15,6 +15,13 @@ return new class extends Migration
             $table->string('id');
             $table->string('user_id')->nullable();
             $table->string('property_id')->nullable();
+            $table->string('receiver')->nullable();
+            $table->boolean('is_property')->nullable();
+            $table->string('wanted_id')->nullable();
+            $table->string('search_keyword')->nullable();
+            $table->string('search_doc')->nullable();
+            $table->string('type')->nullable();
+            $table->string('auto_id')->nullable();
             $table->string('action')->nullable();
 
             $table->string('created_by')->nullable();

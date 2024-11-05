@@ -11,16 +11,17 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('aba_transaction', function (Blueprint $table) {
+        Schema::create('user_documents', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->string('tran_id');
-            $table->boolean('status')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('url')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('deleted_by')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
         });
     }
 
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('aba_transaction');
+        Schema::dropIfExists('user_documents');
     }
 };

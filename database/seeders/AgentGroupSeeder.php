@@ -21,9 +21,8 @@ class AgentGroupSeeder extends Seeder
                 $commission = json_decode($agent_group['commission'],true);
             }
             unset($agent_group['commission']);
-            // DB::table('agent_group')->insert($agent_group);
+            DB::table('agent_group')->insert($agent_group);
             $formatCommission = $this->formatCommission($commission,$agent_group['id']);
-            dd($formatCommission);
             DB::table('agent_group_commission')->insert($formatCommission);
         }
     }
@@ -39,7 +38,7 @@ class AgentGroupSeeder extends Seeder
                     $fees = $item['fee'];
                     foreach($fees as $fKey=>$fValue){
                         foreach($fValue as $nKey=>$nValue){
-                            $testKey = $this->camelToSnakeCase($nKey);
+                            $testKey = $this->camelToSnakeCase($fKey);
                             $item[$testKey] = $nValue;
                         }
                     }

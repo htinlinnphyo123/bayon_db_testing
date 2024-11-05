@@ -16,7 +16,7 @@ class AppStoreTransactionSeeder extends Seeder
     {
         $appstore_transactions = (new MysqlScriptConverter('json_db/appstore_transaction.json'))->generate();
         foreach ($appstore_transactions as $appstore_transaction) {
-            DB::table('appstore_transaction')->insert($appstore_transaction);
+            DB::table('appstore_transactions')->insert($appstore_transaction);
         }
     }
 }

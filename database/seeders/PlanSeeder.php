@@ -26,7 +26,6 @@ class PlanSeeder extends Seeder
             foreach($formatDetails as $detail){
                 DB::table('plan_details')->insert($detail);
             }
-
         }
     }
     protected function formatDetails($array,$planID) {

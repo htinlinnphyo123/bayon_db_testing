@@ -16,7 +16,7 @@ class BranchSeeder extends Seeder
     {
         $branches = (new MysqlScriptConverter('json_db/branch.json'))->generate();
         foreach($branches as $branch){
-            DB::table('branch')->insert($branch);
+            DB::table('branches')->insert($branch);
         }
     }
 }
