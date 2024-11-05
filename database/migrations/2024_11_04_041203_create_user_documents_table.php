@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('user_id')->nullable();
             $table->string('url')->nullable();
+            $table->string('name')->nullable();
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();

@@ -24,9 +24,16 @@ return new class extends Migration
             $table->string('last_name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            // $table->string('agent_doc')->nullable();
+            $table->text('agent_doc')->nullable();
             $table->string('agency_doc')->nullable();
             $table->string('developer_doc')->nullable();
+            $table->string('platform')->nullable();
+            $table->string('property_id')->nullable();
+            $table->text('external_property_doc')->nullable();
+            $table->string('product_id')->nullable();
+            $table->string('upgrade_to')->nullable();
+            $table->string('valuator')->nullable();
+
 
             $table->string('created_by')->nullable();
             $table->string('updated_by')->nullable();
@@ -34,32 +41,7 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        Schema::create('agent_documents', function(Blueprint $table){
-            $table->id();
-            $table->string('name')->nullable();
-            $table->string('address')->nullable();
-            $table->string('email')->nullable();
-            $table->string('country_id')->nullable();
-            $table->string('location_id')->nullable();
-            $table->string('phone_number')->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('dob')->nullable();
-            $table->boolean('status')->nullable();
-            $table->string('description')->nullable();
-            $table->string('agent_type')->nullable();
-            $table->string('nation_id')->nullable();
-            $table->string('type')->nullable();
-            $table->string('salary')->nullable();
-            $table->string('upLine_id')->nullable();
-            $table->string('sponsor_id')->nullable();
-            $table->string('branch_id')->nullable();
-            $table->string('photo')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('telegram')->nullable();
-            $table->string('user_payment_id');
-            $table->foreign('user_payment_id')->references('id')->on('user_payments');
 
-        });
     }
 
     /**

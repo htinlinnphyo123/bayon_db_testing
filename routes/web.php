@@ -8,7 +8,7 @@ use App\Http\Controllers\MysqlScriptConverter;
 
 Route::get('/', function () {
     // return view('welcome');
-    $areas = (new MysqlScriptConverter('json_db/sb_userSubscription.json'))->limit(10);
+    $areas = (new MysqlScriptConverter('json_db/sb_plan.json'))->generate();
         dd($areas);
 });
 
