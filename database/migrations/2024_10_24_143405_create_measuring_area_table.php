@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('name')->nullable();
             $table->double('area')->nullable();
-            $table->string('lat_lng')->nullable();
+            $table->text('lat_lng')->nullable();
             $table->string('initial_camera_position')->nullable();
             $table->decimal('zoom_level',15,13)->nullable();
             $table->string('static_map_url')->nullable();
