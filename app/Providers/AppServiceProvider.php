@@ -17,12 +17,12 @@ class AppServiceProvider extends ServiceProvider
         $car = env('CAR_BRAND','BMW');
 
         if($car=='BMW'){
-            $this->app->bind(CarGenerateInterface::class,function(){
-                return new BmwGenerator('red');
+            $this->app->bind(CarGenerateInterface::class,function($app,$params){
+                return new BmwGenerator($params['color']);
             });
         }else{
-            $this->app->bind(CarGenerateInterface::class,function(){
-                return new MarcedeGenerator('red');
+            $this->app->bind(CarGenerateInterface::class,function($app,$params){
+                return new MarcedeGenerator($params['color']);
             });   
         }
     }

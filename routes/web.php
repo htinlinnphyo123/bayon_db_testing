@@ -40,7 +40,7 @@ Route::get('/users',UserList::class)->name('users.index');
 Route::get('hello',[MysqlScriptConverter::class,'index']);
 
 Route::get('test-container',function(){
-   $color = 'red';
+   $color = 'green';
    $resolveContainerWithParam = app()->makeWith(CarGenerateInterface::class,['color'=>$color]);
     echo $resolveContainerWithParam->getInfo();
 });
