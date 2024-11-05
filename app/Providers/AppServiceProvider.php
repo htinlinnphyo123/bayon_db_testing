@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interface\CarGenerateInterface;
+use App\Producer\BmwGenerator;
+use App\Producer\MarcedeGenerator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +14,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $car = env('CAR_BRAND','BMW');
+
+        if($car=='BMW'){
+            $this->app->bind(CarGenerateInterface::class,function(){
+                return new BmwGenerator('red');
+            });
+        }else{
+            $this->app->bind(CarGenerateInterface::class,function(){
+                return new MarcedeGenerator('red');
+            });   
+        }
     }
 
     /**

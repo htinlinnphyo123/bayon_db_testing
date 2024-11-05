@@ -1,8 +1,8 @@
 <?php
 
+use App\Interface\CarGenerateInterface;
 use App\Livewire\Counter;
 use App\Livewire\UserList;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MysqlScriptConverter;
 
@@ -38,3 +38,9 @@ Route::get('/counter', Counter::class)->name('counter');
 Route::get('/users',UserList::class)->name('users.index');
 
 Route::get('hello',[MysqlScriptConverter::class,'index']);
+
+Route::get('test-container',function(){
+   $color = 'red';
+   $resolveContainerWithParam = app()->makeWith(CarGenerateInterface::class,['color'=>$color]);
+    echo $resolveContainerWithParam->getInfo();
+});

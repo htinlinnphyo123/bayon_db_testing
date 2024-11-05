@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             if(isset($user['services']['password']) && $user['services']['password']){
                 $user['password'] = $user['services']['password']['bcrypt'];
             }
+            if(isset($user['emails']))
             DB::table('users')->insert($user);
         }
     }
