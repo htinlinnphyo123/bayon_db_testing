@@ -7,12 +7,12 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MysqlScriptConverter;
 
 Route::get('/', function () {
-    // return view('welcome');
-    $areas = (new MysqlScriptConverter('json_db/sb_plan.json'))->generate();
+    ini_set('memory_limit','512M');
+    $areas = (new MysqlScriptConverter('json_db/users.json'))->limit(3);
         dd($areas);
 });
 
-Route::get('test',function(){
+Route::get('test-pw',function(){
     $check = password_verify('bayon@123$$','$2b$10$9FcwT3p3LLQ1.zcnV0/.7OLKvkjiPpTGS.XoZId23APeaT3LKZ2uS');
     dd($check);
 });

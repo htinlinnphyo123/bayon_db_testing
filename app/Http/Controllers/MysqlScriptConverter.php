@@ -150,8 +150,8 @@ class MysqlScriptConverter extends Controller
                 $convertedArray[$newKey] = $this->cleanInitialCameraPosition($value);
             } elseif($key==='_id' && is_array($value)) {
                 $convertedArray[$newKey] = $value['$oid'];
-            } elseif($key==='profile' || $key==='services') {
-                $convertedArray[$newKey] = $value;
+            } elseif($key==='profile' || $key==='services' || $key==='emails') {
+                $convertedArray[$newKey] = $value; //for user table
             }elseif (is_array($value)) {
                 // Recursively clean any nested arrays
                 $convertedArray[$newKey] = $this->cleanMongoDBTypes($value);

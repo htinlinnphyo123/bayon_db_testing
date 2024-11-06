@@ -21,11 +21,11 @@ return new class extends Migration
             $table->string('facebook_email')->nullable();
 
             $table->string('email')->nullable();
-            $table->string('email_verified_at')->nullable();
+            $table->boolean('email_verified')->nullable();
 
             $table->string('full_name')->nullable();
             $table->boolean('approved')->nullable();
-            $table->boolean('owner')->nullable();
+            $table->boolean('is_owner')->nullable();
             $table->string('phone_number_prefix')->nullable();
             $table->string('phone_number')->nullable();
             $table->boolean('status')->nullable();

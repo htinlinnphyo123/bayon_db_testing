@@ -24,6 +24,23 @@ class UserSeeder extends Seeder
             if(isset($user['services']['password']) && $user['services']['password']){
                 $user['password'] = $user['services']['password']['bcrypt'];
             }
+            if(isset($user['services'])){
+                unset($user['services']);
+            }
+            if(isset($user['emails'][0])){
+                $user['email'] = $user['emails'][0]['address'];
+                $user['email_verified'] = $user['emails'][0]['verified'] ? 1 : 0;
+                unset($user['emails']);
+            }
+            if(isset($user['profile'])){
+                $profile = $user['profile'];
+                $user['full_name'] = $profile['fullName'];
+                $user['approved'] = $profile['approved'] ? 1 : 0;
+                $user['is_owner'] = $profile['owner'] ? 1 : 0;
+                $user['status'] = $profile['status'] ?? null;
+                unset($user['profile']);
+            }
+            dd($user);
             DB::table('users')->insert($user);
         }
     }
